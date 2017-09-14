@@ -22,7 +22,7 @@ root = lxml.html.fromstring(html)
 #for el in root.cssselect("div.right-col *"):           
     #print lxml.html.tostring(el, pretty_print=True)
     #print lxml.html.tostring(el, pretty_print=True)
-    print root[0].text
+print root[0].text
     #scraperwiki.sqlite.save(unique_keys=[el.text], data=lxml.html.tostring(el, pretty_print=True))
 
 print "And done!"
