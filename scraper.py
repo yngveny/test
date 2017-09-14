@@ -23,7 +23,7 @@
 # called "data.sqlite" in the current working directory which has at least a table
 # called "data".
 
-print "Hello, coding in the cloud!"
+print "Hello, scrapertest!"
 
 import scraperwiki           
 # html = scraperwiki.scrape("http://web.archive.org/web/20110514112442/http://unstats.un.org/unsd/demographic/products/socind/education.htm
@@ -40,3 +40,5 @@ for tr in root.cssselect("div[align='left'] tr"):
         }
 
         scraperwiki.sqlite.save(unique_keys=['CompanyInformation'], data=data)
+
+        print "And done!"
