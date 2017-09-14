@@ -25,7 +25,7 @@ for el in root.cssselect("div.right-col *"):
     tds = el.cssselect("div")
     data = {
             'ref' : tds[0].text_content(),
-            'frist' : tds[1].text_content())
+            'frist' : tds[1].text_content()
         }
     
     #print el.text
