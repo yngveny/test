@@ -27,7 +27,8 @@ print "Hello, scrapertest!"
 
 import scraperwiki           
 # html = scraperwiki.scrape("http://web.archive.org/web/20110514112442/http://unstats.un.org/unsd/demographic/products/socind/education.htm
-html = scraperwiki.scrape("https://www.doffin.no/Notice?query=bro")
+# html = scraperwiki.scrape("https://www.doffin.no/Notice?query=bro")
+html = scraperwiki.scrape("https://www.doffin.no/Notice?query=&PageNumber=1&PageSize=10&OrderingType=0&OrderingDirection=1&RegionId=&CountyId=20&MunicipalityId=&IsAdvancedSearch=false&location=20&NoticeType=2&PublicationType=1&IncludeExpired=false&Cpvs=&EpsReferenceNr=&DeadlineFromDate=&DeadlineToDate=&PublishedFromDate=&PublishedToDate=")
 
 import lxml.html           
 root = lxml.html.fromstring(html)
@@ -35,10 +36,10 @@ for tr in root.cssselect("div[align='left'] tr"):
     tds = tr.cssselect("td")
     if len(tds)==12:
         data = {
-            'CompanyInformation' : tds[0].text_content(),
-            'Details' : int(tds[4].text_content())
+            'CountryId' : tds[0].text_content(),
+            'NoticeType' : int(tds[4].text_content())
         }
 
-        scraperwiki.sqlite.save(unique_keys=['CompanyInformation'], data=data)
+        scraperwiki.sqlite.save(unique_keys=['notice-search-item-header'], data=data)
 
         print "And done!"
