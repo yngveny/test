@@ -24,7 +24,7 @@ for el in root.cssselect("div.right-col div"):
     print(el.text_content().encode("utf-8")) 
     tds = el.cssselect("div")
     data = {
-            'Ref' : tds[0].text_content()
+            'Ref' : tds[0].text_content(),
             'Frist' : tds[1].text_content()
         }
     
