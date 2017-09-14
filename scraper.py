@@ -32,6 +32,7 @@ import scraperwiki
 
 html = scraperwiki.scrape("https://www.doffin.no/Notice?query=&PageNumber=1&PageSize=10&OrderingType=0&OrderingDirection=1&RegionId=&CountyId=20&MunicipalityId=&IsAdvancedSearch=false&location=20&NoticeType=2&PublicationType=1&IncludeExpired=false&Cpvs=&EpsReferenceNr=&DeadlineFromDate=&DeadlineToDate=&PublishedFromDate=&PublishedToDate=")
 
+import lxml.html
 root = lxml.html.fromstring(html)
 
 for el in root.cssselect("div.notice-search-item-header a"):           
