@@ -19,8 +19,8 @@ html = scraperwiki.scrape("https://www.doffin.no/Notice?query=&PageNumber=1&Page
 
 root = lxml.html.fromstring(html)
 
-for el in root.cssselect("div.right-col label"):           
-    #print lxml.html.tostring(el)
-    print el.text
+for el in root.cssselect("div.left-col strong"):           
+    print lxml.html.tostring(el)
+    # print el.text
 
 print "And done!"
