@@ -21,6 +21,6 @@ root = lxml.html.fromstring(html)
 
 for el in root.cssselect("div.left-col *"):           
     #print lxml.html.tostring(el)
-    print el[1].text
+    print el[0].text
 
 print "And done!"
