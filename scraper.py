@@ -19,10 +19,10 @@ html = scraperwiki.scrape("https://www.doffin.no/Notice?query=&PageNumber=1&Page
 
 root = lxml.html.fromstring(html)
 
-for el in root.cssselect("div.right-col *"):           
+#for el in root.cssselect("div.right-col *"):           
     #print lxml.html.tostring(el, pretty_print=True)
     #print lxml.html.tostring(el, pretty_print=True)
-    print el[0].text
+    print root[0].text
     #scraperwiki.sqlite.save(unique_keys=[el.text], data=lxml.html.tostring(el, pretty_print=True))
 
 print "And done!"
