@@ -21,7 +21,7 @@ root = lxml.html.fromstring(html)
 
 for el in root.cssselect("div.right-col *"):           
     #print lxml.html.tostring(el, pretty_print=True)
-    print(el.text_content()encode.("utf-8")) 
+    print(el.text_content().encode("utf-8")) 
     #print el.text
     #scraperwiki.sqlite.save(unique_keys=[el.text], data=lxml.html.tostring(el, pretty_print=True))
 
