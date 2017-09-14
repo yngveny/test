@@ -22,6 +22,6 @@ root = lxml.html.fromstring(html)
 for el in root.cssselect("div.right-col *"):           
     print lxml.html.tostring(el, pretty_print=True)
     #print el.text
-    #scraperwiki.sqlite.save(unique_keys=[el[0].text], data=lxml.html.tostring(el, pretty_print=True))
+    scraperwiki.sqlite.save(unique_keys=[el[0].text], data=lxml.html.tostring(el, pretty_print=True))
 
 print "And done!"
