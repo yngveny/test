@@ -24,10 +24,11 @@ for el in root.cssselect("div.right-col div"):
     print(el.text_content().encode("utf-8")) 
     tds = el.cssselect("div")
     data = {
-            'ref' : tds[0].text_content()
+            'Ref' : tds[0].text_content()
+            'Frist' : tds[1].text_content()
         }
     
     #print el.text
-    #scraperwiki.sqlite.save(unique_keys=[el.text], data=lxml.html.tostring(el, pretty_print=True))
+    scraperwiki.sqlite.save(unique_keys=['Ref'], data=data)
 
 print "And done!"
