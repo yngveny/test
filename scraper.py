@@ -25,7 +25,7 @@ for el in root.cssselect("div.notice-search-item div"):
     tds = el.cssselect("div")
     data = {
             'Ref' : tds[0].text_content(),
-            'Descr' : tds[0].text_content()
+            'Descr' : tds[1].text_content()
         }
     scraperwiki.sqlite.save(unique_keys=['Ref'], data=data)
 
