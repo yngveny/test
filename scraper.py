@@ -21,6 +21,6 @@ root = lxml.html.fromstring(html)
 
 for el in root.cssselect("div.notice-search-item-header a"):           
     #print lxml.html.tostring(el)
-    print el.attrib['href']
+    print el.text
 
 print "And done!"
