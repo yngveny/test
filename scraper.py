@@ -38,4 +38,5 @@ for tr in root.cssselect("div[align='left'] tr"):
             'country' : tds[0].text_content(),
             'years_in_school' : int(tds[4].text_content())
         }
-        print data
+
+        scraperwiki.sqlite.save(unique_keys=['country'], data=data)
