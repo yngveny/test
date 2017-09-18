@@ -20,13 +20,27 @@ html = scraperwiki.scrape("https://www.doffin.no/Notice?query=&PageNumber=1&Page
 root = lxml.html.fromstring(html)
 
 for el in root.cssselect("div.notice-search-item div"):           
-    #print lxml.html.tostring(el, pretty_print=True)
-    print(el.text_content().encode("utf-8")) 
-    tds = el.cssselect("div")
+    contentref = root.cssselect("div.notice")
+    abstract = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblAbstract")
+    pubdate = get_value(root,"span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblPubDate")
+    appdocdeadline = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblAppdeadline")
+    appdeadlinedate = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblDeadlineDate")
+    appdeadlinetime = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblDeadlineTime")
+    title = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblTitle")
+    publisher = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblAuth")
+    apptype = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblDocType")
+
     data = {
-            'Ref' : tds[0].text_content(),
-            'Descr' : tds[0].text_content()
-        }
+	   'month' : month,
+	   'seq' : seq,
+	   'scrapedurl'  : url,
+	   'title'       : title,
+	   'abstract'    : abstract,
+	   'publisher'   : publisher,
+	   'publishdate' : dateutil.parser.parse(pubdate, dayfirst=True).date(),
+	   'scrapestamputc' : datetime.datetime.now(),
+	   'apptype'     : apptype,
+    }
     scraperwiki.sqlite.save(unique_keys=['Ref'], data=data)
 
 print "And done!"
