@@ -7,13 +7,9 @@ import lxml.html
 import datetime
 import time
 
-# root.cssselect("div[align='left']")
-#
-# # Write out to the sqlite database using scraperwiki library
-# scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
-#
-# # An arbitrary query against the database
-# scraperwiki.sql.select("* from data where 'name'='peter'")
+def get_value(root, select):
+    ref = root.cssselect(select)
+    return ref[0].text_content().strip()
 
 
 print "Hello, scrapertest!"
