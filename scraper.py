@@ -33,7 +33,7 @@ for el in root.cssselect("div.notice-search-item div"):
 	   #'scrapestamputc' : datetime.datetime.now(),
 	   #'apptype'     : apptype
     }
-    scraperwiki.sqlite.save(unique_keys=[abstract], data=data)
+    scraperwiki.sqlite.save(unique_keys=["abstract"], data=data)
     n = n+1
 
 print "And done!"
