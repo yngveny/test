@@ -13,7 +13,7 @@ html = scraperwiki.scrape("https://www.doffin.no/Notice?&IsAdvancedSearch=false&
 root = lxml.html.fromstring(html)
 
 for el in root.cssselect("div.notice-search-item div"):           
-    "contentref = root.cssselect("div.notice")
+    #contentref = root.cssselect("div.notice")
 
     abstract = root.cssselect("notice-search-item-header")
     
