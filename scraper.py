@@ -25,15 +25,15 @@ for el in root.cssselect("div.notice-search-item div"):
     #publisher = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblAuth")
     #apptype = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblDocType")
 
-    data = {
+    #data = {
 	   #'title'       : title,
-	   'abstract'    : abstract
+	   #'abstract'    : abstract
 	   #'publisher'   : publisher,
 	   #'publishdate' : dateutil.parser.parse(pubdate, dayfirst=True).date(),
 	   #'scrapestamputc' : datetime.datetime.now(),
 	   #'apptype'     : apptype
     }
-    scraperwiki.sqlite.save(unique_keys=["abstract"], data=data)
+    scraperwiki.sqlite.save(unique_keys=["abstract"], data={"abstract"})
     n = n+1
 
 print "And done!"
