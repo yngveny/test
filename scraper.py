@@ -28,18 +28,18 @@ for el in root.cssselect("div.notice-search-item div"):
     #appdocdeadline = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblAppdeadline")
     #appdeadlinedate = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblDeadlineDate")
     #appdeadlinetime = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblDeadlineTime")
-    #title = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblTitle")
+    title = root.cssselect("span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblTitle")
     #publisher = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblAuth")
     #apptype = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblDocType")
 
     data = {
-	   #'title'       : title,
+	   'title'       : title,
 	   'abstract'    : abstract
 	   #'publisher'   : publisher,
 	   #'publishdate' : dateutil.parser.parse(pubdate, dayfirst=True).date(),
 	   #'scrapestamputc' : datetime.datetime.now(),
 	   #'apptype'     : apptype
     }
-    scraperwiki.sqlite.save(unique_keys=['Ref'], data=data)
+    scraperwiki.sqlite.save(unique_keys=['title'], data=data)
 
 print "And done!"
