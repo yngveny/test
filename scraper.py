@@ -34,6 +34,6 @@ for el in root.cssselect("div.notice-search-item div"):
 	   #'apptype'     : apptype
     }
     scraperwiki.sqlite.save(unique_keys=[n], data=data)
-    n++
+    n = n+1
 
 print "And done!"
