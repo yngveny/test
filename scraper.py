@@ -16,7 +16,7 @@ print "Hello, scrapertest!"
 
 #html = scraperwiki.scrape("https://www.doffin.no/Notice?query=&PageNumber=1&PageSize=10&OrderingType=0&OrderingDirection=1&RegionId=&CountyId=20&MunicipalityId=&IsAdvancedSearch=false&location=20&NoticeType=2&PublicationType=1&IncludeExpired=false&Cpvs=&EpsReferenceNr=&DeadlineFromDate=&DeadlineToDate=&PublishedFromDate=&PublishedToDate=")
 
-html = scraperwiki.scrape("http://www.doffin.no/search/show/search_view.aspx")
+html = scraperwiki.scrape("https://www.doffin.no/Notice?&IsAdvancedSearch=false&NoticeType=2&IncludeExpired=false")
 
 root = lxml.html.fromstring(html)
 
