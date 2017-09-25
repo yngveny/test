@@ -15,7 +15,7 @@ n = 0
 for el in root.cssselect("div.notice-search-item div"):           
     #contentref = root.cssselect("div.notice")
 
-    abstract = root.cssselect("notice-search-item-header")
+    abstract = root.cssselect("div.notice-search-item-header")
     
     #pubdate = get_value(root,"span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblPubDate")
     #appdocdeadline = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblAppdeadline")
