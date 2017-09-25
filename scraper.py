@@ -11,7 +11,7 @@ print "Hello, scrapertest!"
 
 html = scraperwiki.scrape("https://www.doffin.no/Notice?&IsAdvancedSearch=false&NoticeType=2&IncludeExpired=false")
 root = lxml.html.fromstring(html)
-
+n = 0
 for el in root.cssselect("div.notice-search-item div"):           
     #contentref = root.cssselect("div.notice")
 
@@ -33,6 +33,7 @@ for el in root.cssselect("div.notice-search-item div"):
 	   #'scrapestamputc' : datetime.datetime.now(),
 	   #'apptype'     : apptype
     }
-    scraperwiki.sqlite.save(unique_keys=['abstract'], data=data)
+    scraperwiki.sqlite.save(unique_keys=[n], data=data)
+    n++
 
 print "And done!"
