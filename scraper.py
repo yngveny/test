@@ -7,9 +7,9 @@ import lxml.html
 import datetime
 import time
 
-def get_value(root, select):
-    ref = root.cssselect(select)
-    return ref[0].text_content().strip()
+#def get_value(root, select):
+#    ref = root.cssselect(select)
+#    return ref[0].text_content().strip()
 
 
 print "Hello, scrapertest!"
@@ -22,22 +22,23 @@ root = lxml.html.fromstring(html)
 
 for el in root.cssselect("div.notice-search-item div"):           
     contentref = root.cssselect("div.notice")
-    abstract = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblAbstract")
-    pubdate = get_value(root,"span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblPubDate")
-    appdocdeadline = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblAppdeadline")
-    appdeadlinedate = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblDeadlineDate")
-    appdeadlinetime = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblDeadlineTime")
-    title = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblTitle")
-    publisher = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblAuth")
-    apptype = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblDocType")
+    abstract = root.cssselect("span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblAbstract")
+    
+    #pubdate = get_value(root,"span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblPubDate")
+    #appdocdeadline = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblAppdeadline")
+    #appdeadlinedate = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblDeadlineDate")
+    #appdeadlinetime = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblDeadlineTime")
+    #title = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblTitle")
+    #publisher = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblAuth")
+    #apptype = get_value(root, "span#ctl00_ContentPlaceHolder1_tab_StandardNoticeView1_notice_introduction1_lblDocType")
 
     data = {
-	   'title'       : title,
-	   'abstract'    : abstract,
-	   'publisher'   : publisher,
-	   'publishdate' : dateutil.parser.parse(pubdate, dayfirst=True).date(),
-	   'scrapestamputc' : datetime.datetime.now(),
-	   'apptype'     : apptype
+	   #'title'       : title,
+	   'abstract'    : abstract
+	   #'publisher'   : publisher,
+	   #'publishdate' : dateutil.parser.parse(pubdate, dayfirst=True).date(),
+	   #'scrapestamputc' : datetime.datetime.now(),
+	   #'apptype'     : apptype
     }
     scraperwiki.sqlite.save(unique_keys=['Ref'], data=data)
 
